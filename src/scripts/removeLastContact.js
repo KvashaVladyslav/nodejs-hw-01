@@ -5,7 +5,7 @@ export const removeLastContact = async () => {
   try {
     const contactsData = await fs.readFile(PATH_DB, { encoding: 'utf8' });
     let contactsDataParse = JSON.parse(contactsData);
-    if (contactsDataParse !== 0) {
+    if (contactsDataParse.length !== 0) {
       contactsDataParse.pop();
       await fs.writeFile(
         PATH_DB,
